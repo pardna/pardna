@@ -179,7 +179,7 @@ gulp.task('watch', function() {
 gulp.task('webserver', function() {
 	connect.server({
 		root: outputDir,
-		port: 8086,
+		port: 8888,
 		livereload: true
 	});
 });

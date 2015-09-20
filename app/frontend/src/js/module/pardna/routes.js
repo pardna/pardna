@@ -19,10 +19,10 @@ angular.module('Pardna').config(['$stateProvider', '$urlRouterProvider',
                 controller: 'AuthenticationCtrl',
                 templateUrl: 'module/mrt/app/templates/index.html'
             })
-            .state('dashboard', {
-                url: '/dashboard',
-                controller: 'DashboardCtrl',
-                templateUrl: 'module/mrt/app/templates/dashboard.html'
+            .state('user-add', {
+                url: '/user/add',
+                controller: 'UserCtrl',
+                templateUrl: 'module/pardna/user/templates/add.html'
             })
             .state('geomodel-weight', {
                 url: '/geomodel/weight/:id',

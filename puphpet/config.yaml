@@ -13,6 +13,9 @@ vagrantfile:
                 vflnp_ezycjqcjmori:
                     host: '7987'
                     guest: '22'
+                port_forward:
+                    host: '8888'
+                    guest: '8888'                
         post_up_message: ''
         provider:
             virtualbox:
