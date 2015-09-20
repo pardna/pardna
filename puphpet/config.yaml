@@ -77,7 +77,7 @@ users_groups:
 locale:
     install: '1'
     settings:
-        default_locale: ''
+        default_locale: 'en_GB.UTF-8 UTF-8'
         locales:
             - 'en_GB.UTF-8 UTF-8'
             - 'en_US.UTF-8 UTF-8'
@@ -87,6 +87,9 @@ firewall:
 cron:
     install: '1'
     jobs: {  }
+nodejs:
+    install: '1'
+    npm_packages: {  }
 nginx:
     install: '0'
     settings:
@@ -187,6 +190,41 @@ apache:
                             custom_fragment: ''
                             provider: filesmatch
                     provider: directory
+        pardna_dev:
+            servername: pardna.dev
+            serveraliases:
+                - www.pardna.dev
+            docroot: /var/www/app
+            port: '444'
+            setenv:
+                - 'APP_ENV dev'
+            custom_fragment: ''
+            ssl: '0'
+            ssl_cert: ''
+            ssl_key: ''
+            ssl_chain: ''
+            ssl_certs_dir: ''
+            ssl_protocol: ''
+            ssl_cipher: ''
+            directories:
+                pardna_devd1:
+                    path: /var/www/app
+                    options:
+                        - Indexes
+                        - FollowSymlinks
+                        - MultiViews
+                    allow_override:
+                        - All
+                    require:
+                        - 'all granted'
+                    custom_fragment: ''
+                    files_match:
+                        pardna_devf1:
+                            path: \.php$
+                            sethandler: 'proxy:fcgi://127.0.0.1:9000'
+                            custom_fragment: ''
+                            provider: filesmatch
+                    provider: directory
 php:
     install: '1'
     settings:
@@ -256,9 +294,6 @@ python:
     install: '1'
     packages: {  }
     versions: {  }
-nodejs:
-    install: '1'
-    npm_packages: {  }
 hhvm:
     install: '0'
     nightly: 0
