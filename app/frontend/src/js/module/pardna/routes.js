@@ -14,15 +14,83 @@ angular.module('Pardna').config(['$stateProvider', '$urlRouterProvider',
         // Application routes
 
         $stateProvider
-            .state('index', {
+            .state('home', {
                 url: '/',
-                controller: 'AuthenticationCtrl',
-                templateUrl: 'module/mrt/app/templates/index.html'
+
+                // templateUrl: 'module/pardna/app/templates/home.html',
+                views: {
+                  '': {
+                    controller: 'HomeCtrl',
+                    'templateUrl' : 'module/pardna/app/templates/home.html',
+                  },
+                  'nav@home': {
+                    'templateUrl' : 'module/pardna/app/templates/home-nav.html'
+                  },
+                  'confirmation@home': {
+                    'templateUrl' : 'module/pardna/app/templates/home-confirmation.html'
+                  }
+                },
+                requiresLogin: true
+            })
+            .state('group-add', {
+                data: {
+                  'selectedTab': 0
+                },
+                url: '/group/add',
+                views: {
+                  '': {
+                    data: {
+                      'selectedTab': 0
+                    },
+                    controller: 'GroupAddCtrl',
+                    'templateUrl' : 'module/pardna/group/templates/add-group.html',
+                  },
+                  'nav@group-add': {
+                    'templateUrl' : 'module/pardna/app/templates/home-nav.html'
+                  },
+                  'your-details@group-add': {
+                    'templateUrl' : 'module/pardna/group/templates/your-details.html'
+                  },
+                  'pardna-details@group-add': {
+                    'templateUrl' : 'module/pardna/group/templates/pardna-details.html'
+                  },
+                  'direct-debit@group-add': {
+                    'templateUrl' : 'module/pardna/group/templates/direct-debit.html'
+                  },
+                  'add-users@group-add': {
+                    'templateUrl' : 'module/pardna/group/templates/add-users.html'
+                  }
+                },
+                requiresLogin: true
             })
             .state('user-add', {
                 url: '/user/add',
                 controller: 'UserCtrl',
                 templateUrl: 'module/pardna/user/templates/add.html'
+            })
+            .state('signup', {
+                url: '/signup',
+                controller: 'SignupCtrl',
+                templateUrl: 'module/pardna/user/templates/signup.html'
+            })
+            .state('forgot-password', {
+                url: '/forgot-password',
+                controller: 'ForgotPasswordCtrl',
+                templateUrl: 'module/pardna/user/templates/forgot-password.html'
+            })
+            .state('login', {
+                url: '/login',
+                controller: 'LoginCtrl',
+                templateUrl: 'module/pardna/user/templates/login.html'
+            })
+            .state('logout', {
+                url: '/logout',
+                controller: 'LogoutCtrl',
+                resolve: {
+                  init: function(userService) {
+                    return userService.deleteToken();;
+                  }
+                }
             })
             .state('geomodel-weight', {
                 url: '/geomodel/weight/:id',

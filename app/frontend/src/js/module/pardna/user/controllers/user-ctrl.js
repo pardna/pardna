@@ -1,11 +1,5 @@
 angular.module('Pardna')
-    .controller('UserCtrl', ['$scope', UserCtrl])
-    config( function($mdThemingProvider){
-      // Configure a dark theme with primary foreground yellow
-      $mdThemingProvider.theme('docs-dark', 'default')
-          .primaryPalette('yellow')
-          .dark();
-    });
+    .controller('UserCtrl', ['$scope', UserCtrl]);
 
 
 function UserCtrl($scope) {

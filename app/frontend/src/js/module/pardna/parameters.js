@@ -1,2 +1,2 @@
 angular.module('app-parameters',[])
-  .constant('env', {"apiUrl":"http://10.51.130.212/mrt/web/app_dev.php/api"});
+  .constant('env', {"apiUrl":"http://192.168.56.101:444/api/web/index.php/api/v1"});
