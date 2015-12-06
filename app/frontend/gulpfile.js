@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-		less = require('gulp-less'),
+		less = require('gulp-less'),   
 		usemin = require('gulp-usemin'),
 		wrap = require('gulp-wrap'),
 		connect = require('gulp-connect'),
@@ -130,9 +130,9 @@ gulp.task('custom-js', function() {
  */
 gulp.task('custom-less', function() {
 	gulp.src(paths.styles)
-			.pipe(less())
+			.pipe(less())  
 			.pipe(concat('pardna.css'))
-        .pipe(gulp.dest(paths.outputDir + 'css/'))
+            .pipe(gulp.dest(paths.outputDir + 'css/'))
  			.pipe(minifyCss())
 			.pipe(rename('pardna.min.css'))
 			.pipe(gulp.dest(paths.outputDir + 'css/'));
@@ -149,7 +149,7 @@ gulp.task('copy-data', function() {
  */
 gulp.task('compile-less', function() {
 	return gulp.src(paths.styles)
-			.pipe(less())
+			.pipe(less())  
 			.pipe(gulp.dest(paths.outputDir + 'css'));
 });
 
