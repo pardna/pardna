@@ -7,7 +7,7 @@
   <div class="box-row" id="firstLogin">
     <div class="box-cell">
       <!-- uiView:  -->
-    <div class="box-inner padding ng-scope" ui-view="" id="view">
+    <div class="box-inner padding ng-scope col-md-8 col-md-offset-2" ui-view="" id="view">
 
     <div class="row">
     <div class="col-lg-9 col-md-8 col-sm-8">
@@ -15,8 +15,7 @@
         <div class="col-xs-12">
           <div class="card">
             <div class="card-heading">
-              <h2>Pardna Groups</h2>
-              <small>Welcome to Parda money</small>
+              <h2>Dashboard</h2>
             </div>
             <div class="card-tools">
               <button ui-sref="group-add" md-ink-ripple="" class="md-btn md-raised pull-right p-h-md pink">Start New Pardna Group</button>
@@ -27,14 +26,14 @@
                   <div class="p-lg bg-white-overlay text-center r-t">
 
                     <div class="m-b m-t-sm h2">
-                      <i class="fa fa-user fa-2x"></i><br />
-                      <span class="">{{ user.fullname }}</span><br />
-                      <span class="small">Membership No. {{ user.membership_number }}</span>
-
+                      <i class="fa fa-user fa-2x"></i>
+                        <span class=""><h2>{{ user.fullname }}</h2></span>
+                        <span class="small">Membership No. {{ user.membership_number }}</span>
                     </div>
-                    <span ng-show="user.verified != '1'">
-                    <a class="btn btn-sm btn-success m-b p-h no-border" ng-click="sendCode($event)">Send Code</a>
-                    <a class="btn btn-sm btn-primary m-b p-h no-border" ng-click="verifyCode($event)">Verify Account</a>
+                    <span class="verify" ng-show="user.verified != '1'">
+                       <span class="verify-text"><h3>Verify Your Account</h3>In order start your first Pardna, you need to verify your account. <br />Get your mobile phone to hand and click "Send Code" to begin.</span>
+                    <a class="md-btn md-raised p-h-md pink md-ink-ripple" ng-click="sendCode($event)">Send Code</a>
+                    <a class="md-btn md-raised p-h-md blue md-ink-ripple" ng-click="verifyCode($event)">Verify Account</a>
                     </span>
                   </div>
 
@@ -44,12 +43,28 @@
           </div>
         </div>
 
-        <div class="col-xs-6">
-          <div class="card pink">
+        <div class="col-xs-12">
+          <div class="card contacts">
             <div class="card-heading">
-              <h2>Following</h2>
-              <small>Pardna users you follow</small>
+              <h2>Your Pardna Groups</h2>
             </div>
+            <div class="list-group list-group-lg no-bg" style="max-height: 200px">
+                
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-4">
+
+      <div class="card">
+        <div class="card-heading">
+          <h2>Members</h2>
+        </div>
+
+          <div class="card contacts">
             <div class="list-group list-group-lg no-bg" style="max-height: 200px">
               <a href="" class="list-group-item text-ellipsis">
                 <span class="pull-right">
@@ -69,50 +84,26 @@
                 </span>
                 Fatimah Malik
               </a>
+              <a href="" class="list-group-item text-ellipsis">
+                <span class="pull-right">
+                  <i class="mdi-action-trending-up i-20 text-muted-dk"></i>
+                </span>
+                Sally Jones
+              </a>
+              <a href="" class="list-group-item text-ellipsis">
+                <span class="pull-right">
+                  <i class="mdi-action-trending-neutral i-20 text-muted-dk"></i>
+                </span>
+                Asif Ram
+              </a>
+              <a href="" class="list-group-item text-ellipsis">
+                <span class="pull-right">
+                  <i class="mdi-action-trending-down i-20 text-muted-dk"></i>
+                </span>
+                Joseph Chan
+              </a>                
             </div>
           </div>
-        </div>
-        <div class="col-xs-6">
-          <div class="card deep-purple">
-            <div class="card-heading">
-              <h2>Followers</h2>
-              <small>Pardna user following you</small>
-            </div>
-            <div class="list-group list-group-lg no-bg">
-              <a href="" class="list-group-item">
-                <span class="pull-right">
-                  1
-                </span>
-                James Smith
-              </a>
-              <a href="" class="list-group-item">
-                <span class="pull-right">
-                  2
-                </span>
-                Paul Laney
-              </a>
-              <a href="" class="list-group-item">
-                <span class="pull-right">
-                  3
-                </span>
-                Fatim Jah
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-4">
-
-      <div class="card">
-        <div class="card-heading">
-          <h2>Header</h2>
-        </div>
-        <div class="card-body">
-          ..............
-        </div>
       </div>
 
   </div>
